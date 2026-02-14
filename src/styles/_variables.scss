@@ -1,0 +1,38 @@
+// ═══════════════════════════════════════════════════════
+// MACH-A Design Tokens
+// Single source of truth for all design values
+// ═══════════════════════════════════════════════════════
+
+// ─── Colors ──────────────────────────────────────────
+$color-primary: #FF7400;
+$color-primary-light: #FF9A00;
+$color-cream: #FCF6EF;
+$color-dark: #0D0B00;
+$color-dark-surface: #141414;
+$color-text-primary: #0D0B00;
+$color-text-secondary: #383838;
+$color-text-muted: #949494;
+$color-white: #FFFFFF;
+
+// ─── Typography ──────────────────────────────────────
+$font-display: 'LcdSolid', monospace;
+$font-heading: 'Urbanist', sans-serif;
+$font-body: 'Outfit', sans-serif;
+
+// Responsive font sizes (mobile-first, clamp-based)
+$fs-hero: clamp(2.25rem, 5vw + 1rem, 3.75rem);          // 36px -> 60px
+$fs-section-title: clamp(1.75rem, 4vw + 0.5rem, 3.5rem); // 28px -> 56px
+$fs-mission: clamp(3rem, 8vw + 1rem, 6.25rem);            // 48px -> 100px
+$fs-tech-title: clamp(1.5rem, 3vw + 0.5rem, 3rem);        // 24px -> 48px
+$fs-cta-title: clamp(1.75rem, 4vw + 0.5rem, 3.25rem);     // 28px -> 52px
+$fs-card-title: clamp(1.125rem, 1.5vw + 0.25rem, 1.5rem); // 18px -> 24px
+$fs-body: clamp(0.875rem, 1vw + 0.25rem, 1.125rem);       // 14px -> 18px
+$fs-label: clamp(0.875rem, 1vw, 1.125rem);                 // 14px -> 18px
+$fs-stat: clamp(1.75rem, 3vw + 0.5rem, 2.625rem);         // 28px -> 42px
+
+// ─── Spacing (responsive) ────────────────────────────
+$space-section-x: clamp(1rem, 5vw, 5rem);     // replaces px-[80px]
+$space-section-y: clamp(3rem, 8vw, 7rem);     // replaces py-[112px]/py-[120px]
+$space-gap-lg: clamp(1.5rem, 4vw, 5rem);      // replaces gap-[80px], gap-[160px]
+$space-gap-md: clamp(1rem, 2vw, 2.5rem);      // replaces gap-[40px]
+$space-gap-sm: clamp(0.75rem, 1.5vw, 1.5rem); // replaces gap-[24px]

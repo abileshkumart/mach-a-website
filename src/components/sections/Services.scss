@@ -1,0 +1,176 @@
+@use '../../styles/variables' as *;
+@use '../../styles/breakpoints' as *;
+
+.services-section {
+  background: $color-dark;
+  position: relative;
+  overflow: hidden;
+  padding: $space-section-y $space-section-x;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.services-glow {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(400px, 60vw, 800px);
+  height: clamp(200px, 30vw, 400px);
+  background: radial-gradient(ellipse, rgba($color-primary, 0.05) 0%, transparent 60%);
+  filter: blur(60px);
+  pointer-events: none;
+  animation: servicesGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes servicesGlow {
+  0% { opacity: 0.4; transform: translateX(-50%) scale(1); }
+  100% { opacity: 0.7; transform: translateX(-50%) scale(1.1); }
+}
+
+.services-header {
+  text-align: center;
+  max-width: 48rem;
+  margin: 0 auto;
+  margin-bottom: $space-gap-lg;
+  position: relative;
+  z-index: 1;
+
+  .section-label {
+    margin-bottom: 1rem;
+  }
+}
+
+.services-title {
+  font-size: $fs-section-title;
+  font-weight: 700;
+  font-family: $font-heading;
+  color: $color-white;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.services-subtitle {
+  font-size: $fs-body;
+  font-family: $font-body;
+  color: $color-text-muted;
+  line-height: 1.7;
+}
+
+// ─── Category Cards Grid ────────────────────────────
+.services-categories-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1rem, 2vw, 1.5rem);
+  width: 100%;
+  max-width: 80rem;
+  position: relative;
+  z-index: 1;
+
+  @include above($bp-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.service-category-card {
+  background-color: $color-dark-surface;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border: 1px solid rgba($color-white, 0.05);
+  transition: border-color 0.3s ease;
+
+  &:hover {
+    border-color: rgba($color-primary, 0.2);
+  }
+}
+
+.category-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba($color-primary, 0.25) 0%, rgba($color-primary-light, 0.15) 100%);
+  border: 1px solid rgba($color-primary, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  color: $color-primary-light;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.category-title {
+  font-family: $font-heading;
+  font-weight: 600;
+  font-size: $fs-card-title;
+  color: $color-white;
+  margin-bottom: 0.5rem;
+}
+
+.category-desc {
+  font-family: $font-body;
+  font-size: clamp(0.8125rem, 1vw, 0.9375rem);
+  color: $color-text-muted;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.category-services-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
+.category-service-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.625rem;
+  border-radius: 8px;
+  font-family: $font-body;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: rgba($color-white, 0.75);
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba($color-primary, 0.08);
+    color: $color-primary;
+  }
+}
+
+.category-discover-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10px;
+  background: linear-gradient(90deg, $color-primary, $color-primary-light);
+  color: $color-white;
+  font-family: $font-display;
+  font-size: 0.875rem;
+  text-transform: capitalize;
+  text-decoration: none;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 20px rgba($color-primary, 0.35);
+  }
+}

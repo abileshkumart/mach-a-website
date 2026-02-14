@@ -1,0 +1,137 @@
+@use '../../styles/variables' as *;
+@use '../../styles/breakpoints' as *;
+
+.process-section {
+  padding: $space-section-y $space-section-x;
+  background: $color-white;
+}
+
+.process-header {
+  text-align: center;
+  max-width: 48rem;
+  margin: 0 auto;
+  margin-bottom: $space-gap-lg;
+}
+
+.process-title {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: $fs-section-title;
+  color: $color-dark;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.process-subtitle {
+  font-family: $font-body;
+  font-size: $fs-body;
+  color: $color-text-secondary;
+  line-height: 1.7;
+}
+
+.process-timeline {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 70rem;
+  margin: 0 auto;
+
+  @include desktop {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+}
+
+.process-step {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  position: relative;
+
+  @include desktop {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 0 1rem;
+  }
+}
+
+.step-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex-shrink: 0;
+
+  @include desktop {
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.step-number {
+  font-family: $font-display;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  color: $color-white;
+  background: linear-gradient(135deg, $color-primary, $color-primary-light);
+  width: clamp(48px, 5vw, 60px);
+  height: clamp(48px, 5vw, 60px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 4px 20px rgba($color-primary, 0.3);
+}
+
+.step-connector {
+  // Mobile: vertical line below the number
+  width: 2px;
+  height: 100%;
+  min-height: 40px;
+  background: linear-gradient(180deg, $color-primary, rgba($color-primary, 0.15));
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform-origin: top center;
+
+  @include desktop {
+    // Desktop: horizontal line to the right
+    width: calc(100% - 60px);
+    height: 2px;
+    min-height: unset;
+    background: linear-gradient(90deg, $color-primary, rgba($color-primary, 0.15));
+    position: absolute;
+    top: 50%;
+    left: calc(50% + 30px);
+    transform-origin: left center;
+  }
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-title {
+  font-family: $font-display;
+  font-weight: 400;
+  font-size: $fs-card-title;
+  color: $color-dark;
+  text-transform: capitalize;
+  margin-bottom: 0.75rem;
+}
+
+.step-desc {
+  font-family: $font-body;
+  font-size: $fs-body;
+  color: $color-text-secondary;
+  line-height: 1.7;
+}

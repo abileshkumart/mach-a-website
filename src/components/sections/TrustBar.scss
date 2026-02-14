@@ -1,0 +1,57 @@
+@use '../../styles/variables' as *;
+@use '../../styles/breakpoints' as *;
+
+.trust-bar {
+  background: $color-white;
+  padding: clamp(2rem, 4vw, 3.5rem) $space-section-x;
+  text-align: center;
+  border-top: 1px solid rgba($color-dark, 0.05);
+  border-bottom: 1px solid rgba($color-dark, 0.05);
+}
+
+.trust-label {
+  font-family: $font-body;
+  font-size: $fs-label;
+  color: $color-text-muted;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.trust-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  padding: 0.5rem 0;
+
+  @include mobile {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding: 0.5rem 1rem;
+  }
+}
+
+.trust-logo-placeholder {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  color: $color-text-muted;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+  scroll-snap-align: center;
+  padding: 0.75rem 1.5rem;
+  border: 1px dashed rgba($color-dark, 0.15);
+  border-radius: 12px;
+
+  &:hover {
+    opacity: 1;
+    border-color: rgba($color-primary, 0.3);
+    color: $color-dark;
+  }
+}

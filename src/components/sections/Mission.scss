@@ -1,0 +1,89 @@
+@use '../../styles/variables' as *;
+@use '../../styles/breakpoints' as *;
+
+.mission-section {
+  background-color: $color-cream;
+  padding: $space-section-y $space-section-x;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $space-gap-lg;
+
+  @include desktop {
+    flex-direction: row;
+    gap: clamp(3rem, 10vw, 10rem);
+    padding: $space-section-y 3.5rem;
+  }
+}
+
+.mission-title {
+  font-family: $font-display;
+  font-weight: 400;
+  text-transform: capitalize;
+  font-size: $fs-mission;
+  background: linear-gradient(90deg, $color-primary, #FFF3E0);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  line-height: 1.05;
+
+  span {
+    display: block;
+  }
+}
+
+.mission-gradient-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(300px, 50vw, 600px);
+  height: clamp(300px, 50vw, 600px);
+  background: radial-gradient(circle,
+    rgba($color-primary, 0.06) 0%,
+    rgba($color-primary-light, 0.03) 40%,
+    transparent 70%);
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  animation: missionPulse 6s ease-in-out infinite;
+}
+
+@keyframes missionPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.15);
+    opacity: 0.8;
+  }
+}
+
+.mission-content {
+  position: relative;
+  z-index: 1;
+}
+
+.mission-quote-icon {
+  margin-bottom: 1rem;
+}
+
+.mission-text {
+  font-family: $font-body;
+  font-size: $fs-body;
+  color: $color-text-secondary;
+  line-height: 1.8;
+
+  @include desktop {
+    margin-left: clamp(0rem, 5vw, 5rem);
+  }
+}
+
+.mission-title-block {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}

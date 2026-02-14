@@ -1,0 +1,89 @@
+@use '../../styles/variables' as *;
+@use '../../styles/breakpoints' as *;
+
+.page-hero {
+  background: $color-dark;
+  position: relative;
+  overflow: hidden;
+  padding: clamp(6rem, 12vw, 10rem) $space-section-x clamp(3rem, 6vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.page-hero-glow {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(300px, 50vw, 600px);
+  height: clamp(150px, 25vw, 300px);
+  background: radial-gradient(ellipse, rgba($color-primary, 0.08) 0%, transparent 60%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.page-breadcrumbs {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1.5rem;
+
+  ol {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    font-family: $font-body;
+    font-size: 0.875rem;
+    color: $color-text-muted;
+  }
+
+  a {
+    color: $color-text-muted;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  .breadcrumb-sep {
+    margin: 0 0.5rem;
+    color: rgba($color-white, 0.2);
+  }
+
+  [aria-current="page"] {
+    color: $color-white;
+  }
+}
+
+.page-hero-title {
+  font-size: $fs-section-title;
+  font-weight: 700;
+  font-family: $font-heading;
+  color: $color-white;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  max-width: 50rem;
+  position: relative;
+  z-index: 1;
+}
+
+.page-hero-desc {
+  font-size: $fs-body;
+  font-family: $font-body;
+  color: $color-text-muted;
+  line-height: 1.7;
+  max-width: 40rem;
+  position: relative;
+  z-index: 1;
+}

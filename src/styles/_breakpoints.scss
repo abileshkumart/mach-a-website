@@ -1,0 +1,38 @@
+// ═══════════════════════════════════════════════════════
+// Responsive Breakpoints
+// ═══════════════════════════════════════════════════════
+
+$bp-sm: 640px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+
+@mixin mobile {
+  @media (max-width: #{$bp-md - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $bp-md) and (max-width: #{$bp-lg - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $bp-lg) {
+    @content;
+  }
+}
+
+@mixin above($bp) {
+  @media (min-width: $bp) {
+    @content;
+  }
+}
+
+@mixin below($bp) {
+  @media (max-width: #{$bp - 1px}) {
+    @content;
+  }
+}

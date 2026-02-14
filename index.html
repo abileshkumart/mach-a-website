@@ -2,9 +2,81 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/Logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mach-a</title>
+    <title>Mach-A | Empowering Growth Through Technology</title>
+    <meta name="description" content="Mach-A helps businesses build smarter solutions, automate processes, and scale seamlessly with digital innovation. UX/UI, AI, cloud, and e-commerce services." />
+    <meta name="theme-color" content="#FF7400" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/Logo.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Mach-A | Empowering Growth Through Technology" />
+    <meta property="og:description" content="Build smarter solutions, automate processes, and scale seamlessly with Mach-A." />
+    <meta property="og:image" content="/Logo.svg" />
+    <meta property="og:site_name" content="Mach-A" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mach-A | Empowering Growth Through Technology" />
+    <meta name="twitter:description" content="Build smarter solutions, automate processes, and scale seamlessly with Mach-A." />
+    <meta name="twitter:image" content="/Logo.svg" />
+
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="/src/assets/font/LcdSolid.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="/src/assets/font/Outfit.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="/src/assets/font/Urbanist.ttf" as="font" type="font/ttf" crossorigin />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Mach-A",
+      "description": "Mach-A helps businesses build smarter solutions, automate processes, and scale seamlessly with digital innovation.",
+      "sameAs": [],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "availableLanguage": "English"
+      }
+    }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What services does Mach-A offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We offer UX/UI design, e-commerce development, business automation, ERP & cloud solutions, and AI automation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does a typical project take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Project timelines vary based on scope and complexity. A standard web application typically takes 8-12 weeks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you provide ongoing support after launch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, we offer 24/7 post-launch support and maintenance packages including bug fixes, performance monitoring, and security updates."
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

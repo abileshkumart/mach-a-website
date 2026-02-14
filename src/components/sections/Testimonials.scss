@@ -1,0 +1,140 @@
+@use '../../styles/variables' as *;
+@use '../../styles/breakpoints' as *;
+
+.testimonials-section {
+  background: $color-dark;
+  padding: $space-section-y $space-section-x;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials-header {
+  margin-bottom: $space-gap-lg;
+}
+
+.testimonials-title {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: $fs-section-title;
+  color: $color-white;
+  line-height: 1.15;
+}
+
+.testimonial-carousel {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: 50rem;
+  margin: 0 auto;
+  position: relative;
+  outline: none;
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 4px;
+    border-radius: 12px;
+  }
+}
+
+.carousel-btn {
+  background: rgba($color-white, 0.1);
+  border: 1px solid rgba($color-white, 0.15);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+
+  &:hover {
+    background: rgba($color-primary, 0.2);
+    border-color: $color-primary;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.carousel-track {
+  flex: 1;
+  overflow: hidden;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+}
+
+.testimonial-card {
+  width: 100%;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.testimonial-quote {
+  font-family: $font-heading;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: rgba($color-white, 0.9);
+  line-height: 1.8;
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.testimonial-attribution {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.testimonial-name {
+  font-family: $font-display;
+  font-size: $fs-card-title;
+  color: $color-primary;
+  font-style: normal;
+}
+
+.testimonial-role {
+  font-family: $font-body;
+  font-size: $fs-label;
+  color: $color-text-muted;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba($color-white, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+
+  &.active {
+    background: $color-primary;
+    transform: scale(1.3);
+  }
+
+  &:hover {
+    background: rgba($color-primary, 0.5);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+}

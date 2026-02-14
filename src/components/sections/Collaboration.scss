@@ -1,0 +1,91 @@
+@use '../../styles/variables' as *;
+@use '../../styles/breakpoints' as *;
+
+.collaboration-section {
+  padding: $space-section-y $space-section-x;
+  position: relative;
+}
+
+.section-label {
+  font-family: $font-display;
+  font-weight: 400;
+  text-transform: capitalize;
+  font-size: $fs-label;
+  color: $color-primary;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.collab-header {
+  display: flex;
+  flex-direction: column;
+  gap: $space-gap-md;
+  padding-bottom: $space-gap-lg;
+
+  @include desktop {
+    flex-direction: row;
+    gap: $space-gap-lg;
+  }
+}
+
+.collab-title {
+  font-size: $fs-section-title;
+  font-weight: 700;
+  font-family: $font-heading;
+  color: $color-dark;
+  line-height: 1.15;
+}
+
+.collab-description {
+  @include desktop {
+    padding-top: 58px;
+  }
+
+  p {
+    color: $color-text-secondary;
+    font-size: $fs-body;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+  }
+}
+
+.collab-points {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $space-gap-md;
+  text-align: center;
+
+  @include above($bp-md) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-gap-md;
+  }
+}
+
+.collab-point {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $space-gap-sm;
+}
+
+.point-number {
+  font-family: $font-display;
+  font-weight: 400;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: $color-primary;
+}
+
+.point-title {
+  font-family: $font-display;
+  font-weight: 400;
+  text-transform: capitalize;
+  font-size: $fs-card-title;
+  color: #101010;
+}
+
+.point-desc {
+  font-size: $fs-body;
+  font-weight: 400;
+  color: $color-text-secondary;
+}

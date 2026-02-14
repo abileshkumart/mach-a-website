@@ -1,0 +1,203 @@
+@use '../../styles/variables' as *;
+@use '../../styles/breakpoints' as *;
+
+.contact-section {
+  background: $color-white;
+  padding: $space-section-y $space-section-x;
+  display: flex;
+  flex-direction: column;
+  gap: $space-gap-lg;
+
+  @include desktop {
+    flex-direction: row;
+    gap: clamp(3rem, 6vw, 6rem);
+  }
+}
+
+.contact-info {
+  width: 100%;
+
+  @include desktop {
+    width: 40%;
+  }
+}
+
+.contact-title {
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: $fs-tech-title;
+  color: $color-dark;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.contact-desc {
+  font-family: $font-body;
+  font-size: $fs-body;
+  color: $color-text-secondary;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.contact-detail-icon {
+  width: 24px;
+  height: 24px;
+  color: $color-primary;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.detail-label {
+  font-family: $font-display;
+  font-size: 0.875rem;
+  color: $color-text-muted;
+  margin-bottom: 0.25rem;
+  text-transform: capitalize;
+}
+
+.detail-value {
+  font-family: $font-body;
+  font-size: 1rem;
+  color: $color-dark;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.contact-form-wrapper {
+  width: 100%;
+
+  @include desktop {
+    width: 60%;
+  }
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+
+  @include above($bp-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  &.form-field-full {
+    grid-column: 1 / -1;
+  }
+
+  label {
+    font-family: $font-body;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: $color-dark;
+  }
+
+  input,
+  select,
+  textarea {
+    font-family: $font-body;
+    font-size: 1rem;
+    color: $color-dark;
+    background: $color-cream;
+    border: 1px solid rgba($color-dark, 0.12);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none;
+    width: 100%;
+
+    &::placeholder {
+      color: $color-text-muted;
+    }
+
+    &:focus {
+      border-color: $color-primary;
+      box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+    }
+
+    &[aria-invalid="true"] {
+      border-color: #dc2626;
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+    }
+  }
+
+  select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23383838' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+}
+
+.field-error {
+  font-family: $font-body;
+  font-size: 0.8rem;
+  color: #dc2626;
+  margin: 0;
+}
+
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.form-status {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  font-family: $font-body;
+  font-size: 0.9rem;
+
+  p {
+    margin: 0;
+  }
+}
+
+.form-status-success {
+  background: rgba(34, 197, 94, 0.1);
+  color: #16a34a;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.form-status-error {
+  background: rgba(220, 38, 38, 0.1);
+  color: #dc2626;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+}

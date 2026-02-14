@@ -1,0 +1,236 @@
+@use '../../styles/variables' as *;
+@use '../../styles/breakpoints' as *;
+
+.header-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba($color-cream, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba($color-dark, 0.05);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem $space-section-x;
+
+  @include desktop {
+    padding: 1rem 4rem;
+  }
+}
+
+.desktop-nav {
+  display: none;
+  align-items: center;
+  gap: $space-gap-md;
+
+  @include desktop {
+    display: flex;
+  }
+}
+
+.nav-link,
+.nav-link-router .nav-link {
+  font-family: $font-body;
+  font-weight: 500;
+  font-size: 1rem;
+  color: $color-dark;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, $color-primary, $color-primary-light);
+    transition: width 0.3s ease;
+    border-radius: 1px;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+.nav-link-router {
+  text-decoration: none;
+}
+
+.nav-link-dropdown {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.nav-chevron {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s ease;
+}
+
+.nav-chevron-open {
+  transform: rotate(180deg);
+}
+
+// ─── Mega Menu ──────────────────────────────────────
+.nav-dropdown-wrapper {
+  position: relative;
+}
+
+.mega-menu {
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  transform-origin: top center;
+  background: $color-white;
+  border-radius: 20px;
+  box-shadow:
+    0 20px 60px rgba($color-dark, 0.12),
+    0 4px 16px rgba($color-dark, 0.06);
+  border: 1px solid rgba($color-dark, 0.06);
+  padding: 1.25rem;
+  width: 800px;
+  max-width: calc(100vw - 2rem);
+  z-index: 100;
+
+  // Invisible bridge to prevent gap hover-out
+  &::before {
+    content: '';
+    position: absolute;
+    top: -14px;
+    left: 0;
+    width: 100%;
+    height: 16px;
+  }
+}
+
+.mega-menu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+// ─── Category Card ──────────────────────────────────
+.mega-menu-card {
+  border-radius: 14px;
+  padding: 1.25rem;
+  background: rgba($color-dark, 0.02);
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba($color-primary, 0.03);
+    border-color: rgba($color-primary, 0.1);
+  }
+}
+
+.mega-menu-card-header {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  margin-bottom: 0.875rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba($color-dark, 0.06);
+}
+
+.mega-menu-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba($color-primary, 0.12), rgba($color-primary-light, 0.08));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: $color-primary;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.mega-menu-card-title {
+  font-family: $font-heading;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: $color-dark;
+  margin-bottom: 0.125rem;
+}
+
+.mega-menu-card-desc {
+  font-family: $font-body;
+  font-size: 0.6875rem;
+  color: $color-text-muted;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// ─── Sub-service Links ──────────────────────────────
+.mega-menu-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.mega-menu-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4375rem 0.625rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background: rgba($color-primary, 0.06);
+
+    .mega-menu-link-title {
+      color: $color-primary;
+    }
+
+    .mega-menu-link-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+.mega-menu-link-title {
+  font-family: $font-body;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: $color-dark;
+  transition: color 0.15s ease;
+}
+
+.mega-menu-link-arrow {
+  width: 14px;
+  height: 14px;
+  color: $color-primary;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all 0.15s ease;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

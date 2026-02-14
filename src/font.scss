@@ -1,14 +1,17 @@
 @font-face {
   font-family: "LcdSolid";
-  src: url("./assets/font/LcdSolid.ttf");
+  src: url("./assets/font/LcdSolid.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Outfit";
-  src: url("./assets/font/Outfit.ttf");
+  src: url("./assets/font/Outfit.ttf") format("truetype");
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Urbanist";
-  src: url("./assets/font/Urbanist.ttf");
+  src: url("./assets/font/Urbanist.ttf") format("truetype");
+  font-display: swap;
 }
