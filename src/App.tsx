@@ -8,6 +8,7 @@ import ServiceDetailPage from '@/pages/ServiceDetailPage';
 
 function App() {
   return (
+    
     <BrowserRouter>
       <ScrollToTop />
       <Routes>
